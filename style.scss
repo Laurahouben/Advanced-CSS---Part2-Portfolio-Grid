@@ -1,0 +1,91 @@
+$WidthHeight: 100%;
+$Padding: 5px; 
+@mixin FlexCenter {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+@mixin TopLeft {
+    top: 0; 
+    left: 0;
+}
+
+body {
+    background-color: #c3cfe2;
+}
+
+/*Mobile*/ 
+
+.image, .image-2, .image-3, .image-4, .image-5, .image-6, .image-7{
+    position: relative; 
+    width: 360px; 
+    height: 360px; 
+    padding-top: $Padding;
+    padding-bottom: $Padding; 
+    .image-portfolio {
+        display: block; 
+        width: $WidthHeight;   
+        border-radius: 5px; 
+    }
+    .button-1 {
+        font-size: 11px; 
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .image-overlay {
+        @include FlexCenter();
+        @include TopLeft(); 
+        position: absolute; 
+        width: $WidthHeight;
+        height: $WidthHeight;
+        background: rgb(44, 44, 62); 
+        border-radius: 5px; 
+        opacity: 0;
+        transition: opacity 0.35s; 
+        &:hover {
+          opacity:1;
+        }
+    }
+}
+
+
+/*Tablet*/ 
+
+@media screen and (min-width:768px){
+
+.grid {
+    width: auto;  
+    display: flex; 
+    flex-wrap: wrap; 
+    gap:10px; 
+    align-items:center;
+    justify-content:center; 
+    margin-top:30px;
+    margin-bottom: 30px; 
+}
+.image-7{
+    float:left;
+    margin-right: 370px; 
+}
+
+} 
+
+/*Desktop*/
+
+@media screen and (min-width:1024px){
+
+.grid {
+      gap:15px;
+    }
+
+.image, .image-2, .image-3, .image-4, .image-5, .image-6, .image-7{
+    width: 320px; 
+    height: 320px; 
+}
+
+.image-7 {
+    float:left;
+    margin-right: 669px; 
+}
+
+}
